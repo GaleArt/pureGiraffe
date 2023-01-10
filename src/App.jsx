@@ -51,7 +51,7 @@ function App() {
 									>
 										<input
 											placeholder='Наименование потребителя'
-											className='peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm'
+											className='peer h-8 border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm'
 											onChange={(e) => setSearchTerm(e.target.value)}
 										/>
 
