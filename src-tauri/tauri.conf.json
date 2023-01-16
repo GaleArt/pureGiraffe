@@ -27,11 +27,11 @@
       },
       "externalBin": [],
       "icon": [
-        "icons/32x32.png",
-        "icons/128x128.png",
-        "icons/128x128@2x.png",
+        "icons/icons8-giraffe-32.ico",
+        "icons/icons8-giraffe-48.png",
+        "icons/icons8-giraffe-96.png",
         "icons/icon.icns",
-        "icons/icon.ico"
+        "icons/icons8-giraffe-32.ico"
       ],
       "identifier": "realinoidentifier238746324",
       "longDescription": "",
@@ -62,7 +62,7 @@
         "fullscreen": false,
         "height": 600,
         "resizable": true,
-        "title": "giraffe",
+        "title": "The Giraffe scream",
         "width": 800
       }
     ]

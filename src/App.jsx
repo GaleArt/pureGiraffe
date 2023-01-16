@@ -2,10 +2,10 @@ import { useState, useEffect } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 
 import { NavBar } from './Components/NavBar/NavBar';
+import Pagination from './Components/Pagination';
 import ConnectList from './Components/Connects/ConnectList';
 import CalcRiz from './Components/Calcs/CalcRiz';
 import CalcUt from './Components/Calcs/CalcUt';
-import Todo from './Components/TodoList/Todo/Todo';
 
 import CONNECT_DATA from './db/base.json';
 
@@ -23,6 +23,8 @@ const data = CONNECT_DATA;
 function App() {
 	const [searchTerm, setSearchTerm] = useState('');
 	const [connectList, setConnectList] = useState(data);
+	const [currentPage, setCurrentPage] = useState(1);
+	const [connectPerPage] = useState(14);
 
 	useEffect(() => {
 		const Debounce = setTimeout(() => {
@@ -33,6 +35,15 @@ function App() {
 		return () => clearTimeout(Debounce);
 	}, [searchTerm]);
 
+	const indexOfLastConnect = currentPage * connectPerPage;
+	const indexOfFirstConnect = indexOfLastConnect - connectPerPage;
+	const currentConnects = connectList.slice(
+		indexOfFirstConnect,
+		indexOfLastConnect
+	);
+
+	const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
 	return (
 		<>
 			<Routes>
@@ -40,37 +51,25 @@ function App() {
 					<Route
 						index
 						element={
-							<div className='md:container md:mx-auto flex justify-center'>
-								<div>
-									<label
-										for='UserEmail'
-										className='relative mt-3 block overflow-hidden rounded-md border 
-										border-gray-200 px-3 pt-3 shadow-sm 
-										focus-within:border-blue-600 focus-within:ring-1 
-										focus-within:ring-blue-600'
-									>
-										<input
-											placeholder='Наименование потребителя'
-											className='peer h-8 border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm'
-											onChange={(e) => setSearchTerm(e.target.value)}
-										/>
-
-										<span
-											class='absolute left-3 top-2 -translate-y-1/2 text-xs 
-										text-gray-700 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs'
-										>
-											Наименование потребителя
-										</span>
-									</label>
-
-									<ConnectList connectList={connectList} />
+							<div className='h-full'>
+								<div className='flex items-center flex-col min-h-full'>
+									<input
+										placeholder='Наименование потребителя'
+										className='font-normal w-25 mt-3 py-1.5 px-3 appearance-none rounded-md border border-[#80D8FF] bg-white text-base outline-none focus:border-[#6A64F1] focus:shadow-md'
+										onChange={(e) => setSearchTerm(e.target.value)}
+									/>
+									<Pagination
+										connectPerPage={connectPerPage}
+										totalConnects={connectList.length}
+										paginate={paginate}
+									/>
+									<ConnectList connectList={currentConnects} />
 								</div>
 							</div>
 						}
 					/>
 					<Route path='calcriz' element={<CalcRiz />} />
 					<Route path='calcut' element={<CalcUt />} />
-					<Route path='todo' element={<Todo />} />
 				</Route>
 			</Routes>
 		</>

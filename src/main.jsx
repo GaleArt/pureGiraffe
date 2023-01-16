@@ -4,10 +4,14 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import './style.css';
 
+import { ThemeProvider } from '@material-tailwind/react';
+
 ReactDOM.createRoot(document.getElementById('root')).render(
 	<React.StrictMode>
 		<BrowserRouter>
-			<App />
+			<ThemeProvider>
+				<App />
+			</ThemeProvider>
 		</BrowserRouter>
 	</React.StrictMode>
 );
