@@ -15,7 +15,7 @@ const NavBar = () => {
 							iraffe scream
 						</span>
 					</div>
-					<nav class='hidden items-center space-x-2 text-gray-800 md:flex'>
+					<nav class='hidden items-center text-gray-800 md:flex'>
 						<Link className='flex justify-around rounded my-btn' to='/'>
 							Потребители
 						</Link>
