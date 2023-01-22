@@ -39,13 +39,11 @@ const CalcUt = () => {
 					<input
 						className='font-normal w-25 py-1.5 px-3 appearance-none rounded-md border border-[#80D8FF] bg-white text-base text-[#4d70b8ee] outline-none focus:border-[#6A64F1] focus:shadow-md'
 						type='number'
-						placeholder='Время испытаний, часов'
+						placeholder='t, часов'
 						onInput={showResult}
 						ref={inputTestTime}
 					/>
-					<p className='ml-2 w-20'>
-						кгс/см<sup>2</sup>
-					</p>
+					<p className='ml-2 w-20'>часов</p>
 				</div>
 			</div>
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import Git from '../assets/icons/github2.svg';
+import Git from '../../assets/icons/github2.svg';
 
 const Footer = () => {
 	return (

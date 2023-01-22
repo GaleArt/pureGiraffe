@@ -1,12 +1,14 @@
 import React from 'react';
-import Connect from './Connect';
+import { Link } from 'react-router-dom';
 
 const ConnectList = ({ connectList, searchTerm }) => {
 	return (
-		<div className=''>
+		<div className='flex flex-col'>
 			{connectList.map((connect, index) => {
 				return (
-					<Connect key={index} name={connect.name} rabVV={connect.rabVV} />
+					<>
+						<Link to={connect.index}>{connect.name}</Link>
+					</>
 				);
 			})}
 		</div>

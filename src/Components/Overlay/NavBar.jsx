@@ -1,20 +1,14 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
-
-import Footer from '../Footer';
-import GiraffeLogo from '../../assets/icons/Grf1.png';
+import Logo from './Logo';
+import Footer from './Footer';
 
 const NavBar = () => {
 	return (
 		<div className='overflow-hidden flex flex-col min-h-screen'>
 			<header className='navi font-vtoroi'>
-				<div class='mx-auto flex max-w-7xl items-center justify-between p-1'>
-					<div className='font-bold flex items-center pl-2'>
-						<img src={GiraffeLogo} alt='Logo' />G
-						<span className='text-slate-500 font-extralight'>
-							iraffe scream
-						</span>
-					</div>
+				<div class='mx-auto flex max-w-7xl items-center justify-between'>
+					<Logo />
 					<nav class='hidden items-center text-gray-800 md:flex'>
 						<Link className='flex justify-around rounded my-btn' to='/'>
 							Потребители

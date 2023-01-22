@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 
-import { NavBar } from './Components/NavBar/NavBar';
-import Pagination from './Components/Pagination';
+import { NavBar } from './Components/Overlay/NavBar';
+import Pagination from './Components/Overlay/Pagination';
 import ConnectList from './Components/Connects/ConnectList';
 import CalcRiz from './Components/Calcs/CalcRiz';
 import CalcUt from './Components/Calcs/CalcUt';
